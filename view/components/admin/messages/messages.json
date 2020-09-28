@@ -1,0 +1,20 @@
+{
+    "translate": "Translation successfully.",
+    "property": {
+        "save": "Translation property saved successfully."
+    },
+    "errors": {
+        "theme_name": "Not valid theme name",
+        "property": {
+            "save": "Can't save translation property.",
+            "writable": "Translation file is not writtable."
+        },
+        "translation": {
+            "writable": "Path not writable, can't write translation file",
+            "api": "Translation api error",
+            "exists": "Translation exist error.",
+            "file": "Translation file not found error."
+        },
+        "translate": "Translation error."
+    }
+}

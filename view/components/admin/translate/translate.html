@@ -1,0 +1,29 @@
+{% set items = [ 
+    {   
+        title: labels.template,
+        component: 'translations::admin.translate.template',
+        icon: 'file alternate outline',
+        id: 'view_translate_text',
+        active: true 
+    },
+    {   
+        title: labels.text,
+        component: 'translations::admin.translate.text',
+        icon: 'file alternate outline',
+        id: 'view_translate_text'      
+    },   
+    {   
+        title: labels.languages,
+        component: 'translations::admin.translate.languages',
+        icon: 'globe',
+        id: 'view_translate_language',      
+    }     
+] %}
+
+{{  component('components:tabs.vertical',{ 
+        items: items, 
+        menu: { id: 'translate_menu' }, 
+        item_class: 'translate-tab-item',
+        content: { id: 'translate_content', component: 'translations::admin.translate.template' } 
+    })
+}}

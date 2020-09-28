@@ -1,0 +1,17 @@
+<form class="ui form {{ class }}" id="translate_text_form">         
+    <div class="field">
+        <label>{{ fields.text.label }}</label>
+        <textarea class="ui fluid" name="text" id="text" rows="7" cols="7" {{ fields.text.placeholder|attr('placeholder') }}>{{ text }}</textarea>        
+    </div>    
+    <div class="field">
+        <label>{{ fields.language.label }}</label>
+        {{  component('components:language.dropdown',{
+                name: 'language', 
+                id: 'choose_language', 
+                selected: language, 
+                class: 'inline search selection' 
+            }) 
+        }}   
+    </div>                   
+    {{ component('components:form.footer',{ button_title: buttons.translate }) }}   
+</form>

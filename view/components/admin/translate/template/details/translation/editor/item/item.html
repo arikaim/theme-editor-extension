@@ -1,0 +1,15 @@
+{% set button_title = button_title|default(labels.save) %}
+{% set template = package('template').createPackage(theme_name) %}
+{% set type = type|default('components') %}
+{% set translation = template.readTranslation(component_name,language,type) %}
+{% set property_value = template.readTranlationProperty(translation,property_key) %}
+
+<button class="ui basic mini icon button edit-property" 
+    type="{{ type }}" 
+    theme="{{ theme_name }}" 
+    language="{{ language }}" 
+    component-name="{{ component_name }}"
+    property-key="{{ property_key }}">
+    <i class="icon edit blue"></i>
+</button>
+<span>{{ property_value }}</span>

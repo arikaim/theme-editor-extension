@@ -1,0 +1,9 @@
+{
+    "title": {
+        "content": "Supported Languages",
+        "icon": "globe"
+    },
+    "messages": {
+        "error": "Translation driver not support this feature."
+    }   
+}

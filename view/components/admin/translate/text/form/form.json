@@ -1,0 +1,15 @@
+{
+    "fields": {
+        "text": {
+            "label": "Text",
+            "placeholder": "Enter text"      
+        },
+        "language": {
+            "label": "Language",
+            "placeholder": "Select Language"      
+        }    
+    },
+    "buttons": {
+        "translate": "Translate"
+    }
+}

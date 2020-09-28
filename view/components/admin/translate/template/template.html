@@ -1,0 +1,47 @@
+{% component 'components:tabs.vertical.content' %}
+{% set primary_template = getOption('primary.template') %}
+{% set language = language|default(current_language) %}
+{% set class = 'sixteen wide column' %}
+{% set panel_class = '' %}
+<div class="mt-4 pt-2">
+    <div class="ui stackable vertically divided grid">
+        <div class="ui row">
+            <div class="one wide column">
+                <button class="ui basic button icon reload-theme-details" title="{{ labels.reload }}">
+                    <i class="sync alternate icon"></i>
+                </button>
+            </div>
+            <div class="ml-2 pl-4 two wide column segment basic">
+                <label class="font-bold p-2">
+                    {{ labels.theme }}
+                </label>
+                {{  component('system:admin.templates.dropdown',{ 
+                        selected: primary_template,
+                        skip: ['system'], 
+                        class: '' 
+                    }) 
+                }}
+            </div>
+            <div class="four wide column mt-2">
+                <label class="font-bold p-2">
+                    {{ labels.language }}
+                </label>
+                {{  component('components:language.dropdown',{
+                        name: 'language', 
+                        id: 'choose_language', 
+                        selected: language, 
+                        class: 'inline search selection' 
+                    }) 
+                }}  
+            </div>
+        </div>
+        <div class="row" id="template_details">       
+            {{  component('translations::admin.translate.template.details',{ 
+                    theme_name: primary_template,
+                    language: language 
+                }) 
+            }}
+        </div>
+    </div>
+</div>
+{% endcomponent %}

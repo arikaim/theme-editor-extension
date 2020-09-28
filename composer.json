@@ -1,0 +1,20 @@
+{
+    "name": "arikaim/theme-editor-extension",
+    "description": "Arikaim CMS Theme editor extension",
+    "keywords": ["Extension", "Arikaim CMS Theme editor extension","Theme Editor","Arikaim","CMS"],
+    "type": "arikaim-extension",
+    "license": "GPL-3.0-or-later",
+    "authors": [{
+        "name": "Konstantin Atanasov",
+        "email": "info@arikaim.com",
+        "homepage": "http://arikaim.com"
+    }],
+    "require": {
+        "php": ">=7.1",
+        "arikaim/installer": "*",
+        "arikaim/translate-module": "^1.0.0"
+    },
+    "extra": {
+        "path": "editor"
+    }
+}

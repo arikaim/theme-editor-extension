@@ -1,0 +1,53 @@
+<div class="mt-2">
+    <h3>{{ labels.console }}</h3>
+    <div class="ui divider"></div>
+    <div class="mt-8">
+        <h4>{{ labels.theme }}</h4>
+        <div class="ui message">        
+            <div class="header">
+                <i class="icon terminal blue"></i>
+                [{{ labels.folder }}] $ 
+                php cli translate:theme  { theme } { language }
+            </div>
+            <p>
+                {{ descriptions.theme }}
+            </p>
+            <ul class="ui list">
+                <li class="item"><b>{ theme }</b>  -  Theme name </li>
+                <li class="item"><b>{ language }</b> -  Language code </li>
+            </ul>
+        </div>
+        <h4>{{ labels.page }}</h4>
+        <div class="ui message">        
+            <div class="header">
+                <i class="icon terminal blue"></i>
+                [{{ labels.folder }}] $ 
+                php cli translate:page  { theme } { page } { language }
+            </div>
+            <p>
+                {{ descriptions.page }}
+            </p>
+            <ul class="ui list">
+                <li class="item"><b>{ theme }</b>  -  Theme name </li>
+                <li class="item"><b>{ page }</b>  -  Page name </li>
+                <li class="item"><b>{ language }</b> -  Language code </li>
+            </ul>
+        </div>
+        <h4>{{ labels.component }}</h4>
+        <div class="ui message">        
+            <div class="header">
+                <i class="icon terminal blue"></i>
+                [{{ labels.folder }}] $ 
+                php cli translate:component  { theme } { component } { language }
+            </div>
+            <p>
+                {{ descriptions.component }}
+            </p>
+            <ul class="ui list">
+                <li class="item"><b>{ theme }</b>  -  Theme name </li>
+                <li class="item"><b>{ component }</b>  -  Component name </li>
+                <li class="item"><b>{ language }</b> -  Language code </li>
+            </ul>
+        </div>        
+    </div>
+</div>

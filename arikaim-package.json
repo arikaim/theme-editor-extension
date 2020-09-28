@@ -1,0 +1,18 @@
+{
+    "title": "Theme Editor",
+    "name": "editor",
+    "package-type": "extension",
+    "type": "user",
+    "description": "Theme editor.",
+    "short-description": "Theme editor.",
+    "version": "1.0.0",
+    "repository": "https://github.com/arikaim/theme-editor-extension.git",
+    "position": "10",
+    "admin-menu": {        
+        "title": "Theme Editor",
+        "icon": "edit",
+        "page-title": "Theme Editor",
+        "page-icon": "edit",       
+        "component": "editor::admin"
+    }   
+}

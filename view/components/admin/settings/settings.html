@@ -1,0 +1,22 @@
+{% component 'components:tabs.vertical.content' %}
+{% set selected_driver = getOption('translations.service.driver') %}
+<div class="mt-4">     
+    <div class="ui form">
+        <div class="ui segment">
+            {{  component('components:option.driver',{ 
+                    option_name: 'translations.service.driver', 
+                    category: 'translate',
+                    label: labels.driver,
+                    selected: selected_driver
+                }) 
+            }}
+        </div>
+        <div class="ui segment">
+            <h4>{{ labels.config }}</h4>
+            <div class="p-1" id="driver_config">
+                {{ component('system:admin.modules.drivers.config.form',{ driver_name: selected_driver }) }} 
+            </div>
+        </div>
+    </div> 
+</div>
+{% endcomponent %}

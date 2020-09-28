@@ -1,0 +1,15 @@
+{% set class = class|default('basic') %}
+{% set icon = icon|default('language') %}
+
+<button class="ui button translate-button {{ class }}" model="{{ model }}" extension="{{ extension }}" fields="{{ fields }}" 
+    model-uuid="{{ uuid }}" 
+    language="{{ language }}"
+    callback="{{ callback }}">
+
+    {% if hide_icon != true %}
+        <i class="icon {{ icon }}"></i>
+    {% endif %}
+    {% if hide_title != true %}
+        {{ title }}
+    {% endif %}
+</button>

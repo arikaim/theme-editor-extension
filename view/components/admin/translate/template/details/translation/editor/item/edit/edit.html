@@ -1,0 +1,35 @@
+{% set type = type|default('components') %}
+{% set template = package('template').createPackage(theme_name) %}
+{% set translation = template.readTranslation(component_name,language,type) %}
+{% set property_value = template.readTranlationProperty(translation,property_key) %}
+{% set button_class = button_class|default('button mini green') %}
+{% set cancel_button_class = cancel_button_class|default('button mini') %}
+
+<form class="ui inline form save-property-form" id="property_form_{{ property_key }}">
+    <input type='hidden' name="theme" value="{{ theme_name }}">
+    <input type='hidden' name="language" value="{{ language }}">
+    <input type='hidden' name="component_name" value="{{ component_name }}">
+    <input type='hidden' id="property_key" name="property_key" value="{{ property_key }}">
+    <input type='hidden' id="type" name="type" value="{{ type }}">
+
+    <textarea class="field fluid" name="property_value">{{ property_value }}</textarea>
+    {% if demo_mode != true %}
+        <button class="ui submit-button {{ button_class }}" title="{{ buttons.save.title }}">
+            {{  buttons.save.title }}
+        </button>  
+        <a class="ui cancel-button {{ cancel_button_class }}" 
+            type="{{ type }}"
+            theme="{{ theme_name }}" 
+            language="{{ language }}" 
+            component-name="{{ component_name }}"
+            property-key="{{ property_key }}"
+            title="{{ buttons.cancel.title }}">
+            {{ buttons.cancel.content }}
+        </a> 
+    {% endif %}
+</form>
+{% if demo_mode == true %}   
+<div class="ui error message">
+    {{ messages.demo }}
+</div>
+{% endif %}

@@ -1,0 +1,15 @@
+{    
+    "buttons": {
+        "save": {
+            "content": "Save",
+            "title": "Save"
+        },
+        "cancel": {
+            "content": "Cancel",
+            "title": "Cancel"
+        }
+    },
+    "messages": {
+        "demo": "Disabled in DEMO MODE"
+    }
+}

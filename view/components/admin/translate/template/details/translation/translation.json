@@ -1,0 +1,9 @@
+{
+    "title": "Language Translation",
+    "labels": {
+        "component": "Component",
+        "page": "Page",
+        "file": "File",
+        "language": "Language"
+    }    
+}

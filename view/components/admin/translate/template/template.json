@@ -1,0 +1,11 @@
+{
+    "title": {
+        "content": "Translate Theme",
+        "icon": "edit"
+    },
+    "labels": {
+        "theme": "Theme",
+        "reload": "Reload",
+        "language": "Language"
+    }    
+}

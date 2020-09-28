@@ -1,0 +1,10 @@
+{
+    "title": {
+        "content": "Settings",
+        "icon": "cogs"
+    },
+    "labels": {
+        "driver": "Translations API driver",
+        "config": "Driver Config"
+    }
+}

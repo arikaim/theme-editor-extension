@@ -1,0 +1,32 @@
+<div class="four wide column">
+    <div class="ui fluid accordion">
+        <div class="active title">         
+            <h3>               
+                <i class="project diagram blue icon"></i>   
+                <i class="dropdown icon"></i>
+                {{ labels.components }}
+            </h3>
+        </div>
+        <div class="active content theme-components" id="theme_components" theme="{{ theme_name }}" language="{{ language }}" type="components">
+            {{  component('translations::admin.translate.template.details.components',{ 
+                    theme_name: theme_name,
+                    language: language
+                }) 
+            }}
+        </div>
+        <div class="title">
+            <h3>
+                <i class="file alternate outline blue icon"></i>    
+                <i class="dropdown icon"></i>
+                {{ labels.pages }}
+            </h3>
+        </div>
+        <div class="content theme-components" id="theme_pages" theme="{{ theme_name }}" language="{{ language }}" type="pages">            
+        </div>
+    </div>
+</div>
+<div class="twelve wide column" id="translation_content">
+    {% if file is not empty %}
+        {{ component('translations::admin.translate.template.details.translation',{ file: file }) }}
+    {% endif %}
+</div>
