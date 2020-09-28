@@ -1,7 +1,6 @@
 {
     "labels": {
-        "translate": "Translate",       
-        "settings": "Setting",
-        "help": "Help"
+        "editor": "Editor",       
+        "pages": "Pages"       
     }
 }

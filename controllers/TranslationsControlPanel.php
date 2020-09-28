@@ -7,7 +7,7 @@
  * @license     http://www.arikaim.com/license
  * 
 */
-namespace Arikaim\Extensions\Translations\Controllers;
+namespace Arikaim\Extensions\Editor\Controllers;
 
 use Arikaim\Core\Controllers\ControlPanelApiController;
 use Arikaim\Core\Db\Model;
@@ -16,9 +16,9 @@ use Arikaim\Core\Utils\Utils;
 use Arikaim\Core\Collection\Arrays;
 
 /**
- * Translations control panel controller
+ * Theme editor control panel controller
 */
-class TranslationsControlPanel extends ControlPanelApiController
+class EditorControlPanel extends ControlPanelApiController
 {
     /**
      * Init controller
@@ -27,7 +27,7 @@ class TranslationsControlPanel extends ControlPanelApiController
      */
     public function init()
     {
-        $this->loadMessages('translations::admin.messages');
+        $this->loadMessages('editor::admin.messages');
     }
 
     /**

@@ -6,7 +6,7 @@
  */
 'use strict';
 
-function TranslationsControlPanel() {
+function ThemeEditorControlPanel() {
   
     this.translateComponent = function(theme, componentName, language, type, onSuccess, onError) {
         var data = {
@@ -43,8 +43,8 @@ function TranslationsControlPanel() {
     };
 }
 
-var translations = new TranslationsControlPanel();
+var themeEditor = new ThemeEditorControlPanel();
 
 arikaim.page.onReady(function() {
-    translations.init();
+    themeEditor.init();
 });

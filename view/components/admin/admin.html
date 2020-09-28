@@ -1,13 +1,12 @@
 {%  set items = [ 
-        { id: 'translate_tab', title: labels.translate, icon: 'language', component: 'translations::admin.translate', active: true },                 
-        { id: 'translate_settings_tab', title: labels.settings, component: 'translations::admin.settings', icon: 'cogs' }, 
-        { id: 'translate_help_tab', title: labels.help, component: 'translations::admin.help', icon: 'help' }    
+        { id: 'editor_tab', title: labels.editor, icon: 'edit', component: 'editor::admin.editor', active: true },                 
+        { id: 'editor_pages_tab', title: labels.pages, component: 'editor::admin.pages', icon: 'file outline' },          
     ] 
 %}
 
 {{  component('components:tabs',{ 
         items: items,
-        menu: { component: 'system:admin.extensions.menu.actions', extension: 'translations' },
-        content: { component: 'translations::admin.translate' } 
+        menu: { component: 'system:admin.extensions.menu.actions', extension: 'editor' },
+        content: { component: 'editor::admin.editor' } 
     })
 }}
