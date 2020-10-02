@@ -11,8 +11,8 @@ function TemplateTranslations() {
 
     this.loadThemeDetails = function(theme, language) {
         arikaim.page.loadContent({
-            id: 'template_details',
-            component: "translations::admin.translate.template.details",
+            id: 'editor',
+            component: "editor::admin.editor.view",
             params: { 
                 theme_name : theme,
                 language: language

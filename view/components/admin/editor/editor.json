@@ -1,6 +1,6 @@
 {
     "labels": {
-        "template": "Theme",
+        "theme": "Theme",
         "text":  "Text",
         "languages": "Languages"                                
     }

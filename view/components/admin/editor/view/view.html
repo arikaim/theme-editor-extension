@@ -1,0 +1,17 @@
+<div class="ui very basic segment mt-4">
+    {% set items = [ 
+        { title: links.components, component: 'editor::admin.editor.components', icon: 'code', active: true },
+        { title: links.pages, component: 'editor::admin.editor.pages', icon: 'file outline' },
+        { title: links.libraries, component: 'editor::admin.editor.pages', icon: 'cubes' },
+        { title: links.css, component: 'editor::admin.editor.pages', icon: 'css3' },
+        { title: links.js, component: 'editor::admin.editor.pages', icon: 'js' }
+    ] %}
+
+    {{  component('components:tabs.vertical',{ 
+            items: items, 
+            menu: { id: 'editor_menu' }, 
+            item_class: 'editor-tab-item',
+            content: { id: 'editor_content', component: 'editor::admin.editor.components' } 
+        })
+    }}
+</div>
