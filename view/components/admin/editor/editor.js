@@ -6,13 +6,13 @@
  */
 'use strict';
 
-function TemplateTranslations() {
+function ThemeEditor() {
     var self = this;
 
-    this.loadThemeDetails = function(theme, language) {
+    this.loadThemeEdit = function(theme, language) {
         arikaim.page.loadContent({
             id: 'editor',
-            component: "editor::admin.editor.view",
+            component: "editor::admin.editor.edit",
             params: { 
                 theme_name : theme,
                 language: language
@@ -28,7 +28,7 @@ function TemplateTranslations() {
         $('#templates_dropdown').dropdown({
             onChange: function(name) {
                 var language = $('#choose_language').dropdown('get value');
-                self.loadThemeDetails(name,language);                
+                self.loadThemeEdit(name,language);                
             }
         });   
 
@@ -145,9 +145,8 @@ function TemplateTranslations() {
     };
 }
 
-var templateTranslations = new TemplateTranslations();
+var themeEditor = new ThemeEditor();
 
 $(document).ready(function() {
-    templateTranslations.init();
-    templateTranslations.initRows();
+    themeEditor.init();    
 });

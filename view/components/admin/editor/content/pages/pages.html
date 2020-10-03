@@ -1,0 +1,41 @@
+{% set template = package('template').createPackage(theme_name) %}
+{% set parent_component = parent_component|default('') %}
+{% set hide_title = hide_title|default(true) %}
+{% set pages = template.getPages(parent_component) %}
+
+{% if hide_title != true %}
+<div class="ui header">
+    <i class="file alternate outline small blue icon"></i>    
+    <div class="content">
+        {{ title }}
+    </div>    
+</div>
+<div class="ui divider"></div>
+{% endif %}
+<div class="ui list relaxed {{ class }}">
+    {% for file in pages %}           
+        {% set child_pages = template.getPages(file.full_name) %}  
+        <div class="item">           
+            <i class="file code outline icon"></i>       
+            <div class="content" >
+                <div class="header">
+                    {% if child_pages|length > 0 %}
+                        <a class="load-child-components" 
+                            type="pages"
+                            component-id="{{ file.id }}" 
+                            parent="{{ file.full_name }}" 
+                            theme="{{ theme_name }}" 
+                            language="{{ language }}" >
+                            {{ file.name }}   
+                        </a>
+                    {% else %}   
+                        {{ file.name }}   
+                    {% endif %} 
+                </div>
+                
+                <div id="components_content_{{ file.id }}" class="mt-1 mb-1 hidden p-1">
+                </div>
+            </div>      
+        </div>
+    {% endfor %}
+</div>
