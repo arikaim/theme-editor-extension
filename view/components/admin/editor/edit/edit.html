@@ -1,18 +1,3 @@
-<div class="ui very basic segment mt-4">
-    {% set params = { theme_name: theme_name } %}
-    {% set items = [ 
-        { title: links.components, component: 'editor::admin.editor.content.components', icon: 'code', active: true, params: params },
-        { title: links.pages, component: 'editor::admin.editor.content.pages', icon: 'file outline', params: params },
-        { title: links.libraries, component: 'editor::admin.editor.content.libraries', icon: 'cubes', params: params },
-        { title: links.css, component: 'editor::admin.editor.content.files', icon: 'css3', params: params },
-        { title: links.js, component: 'editor::admin.editor.content.files', icon: 'js', params: params }
-    ] %}
-
-    {{  component('components:tabs.vertical',{ 
-            items: items, 
-            menu: { id: 'editor_menu' }, 
-            item_class: 'editor-tab-item',
-            content: { id: 'editor_content', component: 'editor::admin.editor.content', params: params } 
-        })
-    }}
+<div>
+    
 </div>
