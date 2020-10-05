@@ -1,7 +1,7 @@
 'use strict';
 
 $(document).ready(function() {     
-    safeCall('templateTranslations',function(obj) {
+    safeCall('themeEditor',function(obj) {
         obj.initRows();
     },true);   
 }); 

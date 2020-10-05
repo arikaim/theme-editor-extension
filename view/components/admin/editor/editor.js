@@ -12,7 +12,7 @@ function ThemeEditor() {
     this.loadThemeEdit = function(theme, language) {
         arikaim.page.loadContent({
             id: 'editor',
-            component: "editor::admin.editor.edit",
+            component: "editor::admin.editor.menu",
             params: { 
                 theme_name : theme,
                 language: language
@@ -47,10 +47,11 @@ function ThemeEditor() {
         });       
     };
 
-    this.editTranslation = function(theme, language, componentName, type) {
+    this.editFile = function(theme, language, componentName, type) {
+
         arikaim.page.loadContent({
-            id: 'translation_content',
-            component: 'translations::admin.translate.template.details.translation',
+            id: 'edit_file',
+            component: 'editor::admin.editor.edit',
             params: { 
                 theme_name: theme,
                 language: language,
@@ -114,33 +115,13 @@ function ThemeEditor() {
             return self.loadChildComponents(theme,language,parent,id,type);
         });
 
-        arikaim.ui.button('.create-translation',function(element) {
-            var theme = $(element).attr('theme');
-            var type = $(element).attr('type');
-            var language = $(element).attr('language');
-            var componentName = $(element).attr('component-name');    
-            $('#translation_content').html("");
-
-            return translations.translateComponent(theme,componentName,language,type,function(result) {
-                $(element).addClass('invisible');
-                arikaim.ui.show('#edit_translaton_' + componentName);
-           
-                self.editTranslation(result.theme,result.language,result.component,result.type);   
-            },function(error) {               
-                arikaim.page.toastMessage({
-                    message: error[0],
-                    class: 'error'
-                });
-            });
-        });
-
-        arikaim.ui.button('.edit-translation',function(element) {
+        arikaim.ui.button('.edit-file',function(element) {
             var theme = $(element).attr('theme');
             var type = $(element).attr('type');
             var language = $(element).attr('language');
             var componentName = $(element).attr('component-name');
           
-            self.editTranslation(theme,language,componentName,type);            
+            self.editFile(theme,language,componentName,type);            
         });    
     };
 }

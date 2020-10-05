@@ -16,15 +16,18 @@
     {% for file in components %}       
         {% set child_components = template.getComponents(file.full_name) %}  
         <div class="item">           
-            <i class="file code outline icon"></i>       
+            <i class="file code outline icon"></i>              
             <div class="content">
+                <button class="ui mini icon basic button edit-file right floated" file="{{ file.full_name }}" type="component" theme="{{ theme_name }}">
+                    <i class="icon edit"></i>
+                </button>     
                 <div class="header">
                     {% if child_components|length > 0 %}
                         <a class="load-child-components" 
                             component-id="{{ file.id }}" 
                             parent="{{ file.full_name }}" 
                             theme="{{ theme_name }}" 
-                            language="{{ language }}" >
+                            language="{{ language }}">
                             {{ file.name }}   
                         </a>
                     {% else %}   

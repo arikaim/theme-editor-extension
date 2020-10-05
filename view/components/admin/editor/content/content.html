@@ -1,10 +1,12 @@
-<div class="ui segment">
-    <div class="ui grid">
-        <div class="three wide column" id="edit_items">     
-            {{ component('editor::admin.editor.content.components',{ theme_name: theme_name, class: 'relaxed' }) }}
-        </div>
-        <div class="thirteen wide column" id="edit_content">
-            content
+<div class="ui very basic segment" style="height:80vh">
+    <div class="ui divided grid h-full">
+        <div class="row">
+            <div class="three wide column" id="edit_items">     
+                {{ component('editor::admin.editor.content.components',{ theme_name: theme_name, class: 'relaxed' }) }}
+            </div>
+            <div class="thirteen wide column" id="edit_file">
+                edit file
+            </div>
         </div>
     </div>
 </div>
