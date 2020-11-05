@@ -31,6 +31,23 @@ class EditorControlPanel extends ControlPanelApiController
     }
 
     /**
+     *  Read file
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param Validator $data
+     * @return Psr\Http\Message\ResponseInterface
+    */
+    public function readFileController($request, $response, $data) 
+    { 
+        $type = $data->get('type','component');
+        $theme = $data->get('theme',null);
+
+        $packageManager = $this->get('packages')->create('template');
+        
+    }
+
+    /**
      *  Save file
      *
      * @param \Psr\Http\Message\ServerRequestInterface $request

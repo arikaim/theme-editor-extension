@@ -48,7 +48,6 @@ function ThemeEditor() {
     };
 
     this.editFile = function(theme, language, componentName, type) {
-
         arikaim.page.loadContent({
             id: 'edit_file',
             component: 'editor::admin.editor.edit',
@@ -61,8 +60,7 @@ function ThemeEditor() {
         });
     };
 
-    this.loadChildComponents = function(theme, language, parent, id, type) {  
-        
+    this.loadChildComponents = function(theme, language, parent, id, type) {          
         var componentName = (type == 'pages') ? 'pages' : 'components';
 
         arikaim.page.loadContent({
@@ -119,7 +117,7 @@ function ThemeEditor() {
             var theme = $(element).attr('theme');
             var type = $(element).attr('type');
             var language = $(element).attr('language');
-            var componentName = $(element).attr('component-name');
+            var componentName = $(element).attr('component');
           
             self.editFile(theme,language,componentName,type);            
         });    
