@@ -24,11 +24,9 @@ class Editor extends Extension
     public function install()
     {
         // Control Panel
-        $this->addApiRoute('PUT','/api/editor/admin/translate','EditorControlPanel','translate','session');   
-        $this->addApiRoute('POST','/api/editor/admin/translate/model','EditorControlPanel','translateModel','session');   
-        $this->addApiRoute('POST','/api/editor/admin/translate/save/property','EditorControlPanel','saveTranslationProperty','session');   
-        // Theme component editor
-        $this->addApiRoute('POST','/api/editor/admin/translate/component','EditorControlPanel','createComponentTranslation','session');                 
+        $this->addApiRoute('PUT','/api/editor/admin/load/component/file','EditorControlPanel','loadComponentFile','session'); 
+        $this->addApiRoute('PUT','/api/editor/admin/save/component/file','EditorControlPanel','saveComponentFile','session');   
+        $this->addApiRoute('PUT','/api/editor/admin/pages/status','PagesControlPanel','setStatus','session');   
     }
     
     /**

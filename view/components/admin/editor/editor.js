@@ -9,13 +9,12 @@
 function ThemeEditor() {
     var self = this;
 
-    this.loadThemeEdit = function(theme, language) {
+    this.loadThemeEdit = function(theme) {
         arikaim.page.loadContent({
             id: 'editor',
             component: "editor::admin.editor.menu",
             params: { 
-                theme_name : theme,
-                language: language
+                theme_name : theme
             },
             useHeader: true
         },function(result) {
@@ -24,76 +23,34 @@ function ThemeEditor() {
     };
 
     this.init = function() {
-
         $('#templates_dropdown').dropdown({
             onChange: function(name) {
-                var language = $('#choose_language').dropdown('get value');
-                self.loadThemeEdit(name,language);                
+                self.loadThemeEdit(name);                
             }
-        });   
-
-        $('#choose_language').dropdown({
-            onChange: function(value) {
-                var theme = $('#templates_dropdown').dropdown('get value');            
-                self.loadThemeDetails(theme,value);                        
-            }
-        });
-
-        arikaim.ui.button('.reload-theme-details',function(element) {
-            var theme = $('#templates_dropdown').dropdown('get value');
-            var language = $('#choose_language').dropdown('get value');
-
-            self.loadThemeDetails(theme,language);
-        });       
+        });              
     };
 
-    this.editFile = function(theme, language, componentName, type) {
+    this.editFile = function(theme, componentName, type) {
         arikaim.page.loadContent({
             id: 'edit_file',
             component: 'editor::admin.editor.edit',
             params: { 
                 theme_name: theme,
-                language: language,
                 component_name: componentName,
                 type: type
             }
         });
     };
 
-    this.loadChildComponents = function(theme, language, parent, id, type) {          
-        var componentName = (type == 'pages') ? 'pages' : 'components';
+    this.loadChildComponents = function(theme, parent, id, type) {          
 
         arikaim.page.loadContent({
             id: 'components_content_' + id,
-            component: 'translations::admin.translate.template.details.' + componentName,
+            component: 'editor::admin.editor.content.' + type,
             params: { 
                 theme_name: theme,
-                language: language,
                 parent_component: parent,               
                 type: type
-            }
-        },function(result) {
-            self.initRows();
-        });
-    };
-
-    this.loadThemeComponents = function(theme, language, type) {
-
-        if (type == 'pages') {
-            var componentName = 'pages';
-            var id = "theme_pages";
-        } else {
-            var componentName = 'components';
-            var id = "theme_components";
-        }
-        $('.theme-components').html("");
-
-        arikaim.page.loadContent({
-            id: id,
-            component: 'translations::admin.translate.template.details.' + componentName,
-            params: { 
-                theme_name: theme,
-                language: language
             }
         },function(result) {
             self.initRows();
@@ -106,20 +63,18 @@ function ThemeEditor() {
             var parent = $(element).attr('parent');
             var type = $(element).attr('type');
             var theme = $(element).attr('theme');
-            var language = $(element).attr('language');
             var id = $(element).attr('component-id');
             $('#components_content_' + id).show();
             
-            return self.loadChildComponents(theme,language,parent,id,type);
+            return self.loadChildComponents(theme,parent,id,type);
         });
 
         arikaim.ui.button('.edit-file',function(element) {
             var theme = $(element).attr('theme');
             var type = $(element).attr('type');
-            var language = $(element).attr('language');
             var componentName = $(element).attr('component');
           
-            self.editFile(theme,language,componentName,type);            
+            self.editFile(theme,componentName,type);            
         });    
     };
 }

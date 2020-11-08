@@ -11,8 +11,7 @@
     }],
     "require": {
         "php": ">=7.1",
-        "arikaim/installer": "*",
-        "arikaim/translate-module": "^1.0.0"
+        "arikaim/installer": "*"
     },
     "extra": {
         "path": "editor"

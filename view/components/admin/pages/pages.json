@@ -1,10 +1,8 @@
 {
     "title": {
-        "content": "Settings",
-        "icon": "cogs"
+        "content": "Pages",
+        "icon": "file outline"
     },
-    "labels": {
-        "driver": "Translations API driver",
-        "config": "Driver Config"
+    "labels": {        
     }
 }

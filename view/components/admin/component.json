@@ -1,9 +1,4 @@
-{
-    "include": {       
-        "js": [
-            "system:admin.drivers"
-        ]
-    },
+{    
     "access": {
         "auth": "session",
         "redirect": "/admin",

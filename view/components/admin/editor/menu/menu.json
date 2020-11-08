@@ -5,6 +5,7 @@
         "libraries": "Libraries",
         "css": "Css Files",
         "js": "Js Files",
+        "emails": "Emails",
         "settings": "Settings"
     }
 }

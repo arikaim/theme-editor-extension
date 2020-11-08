@@ -12,31 +12,35 @@
     </div>
     <div class="ui divider"></div>
 {% endif %}
-<div class="ui list relaxed {{ class }}">
+<div class="ui list relaxed divided {{ class }}">
     {% for file in components %}       
         {% set child_components = template.getComponents(file.full_name) %}  
         {% set path = template.getComponentPath(file.full_name)  %}
         <div class="item">           
             <i class="file code outline icon"></i>              
-            <div class="content">
-                {{ path }}
-                <button class="ui mini icon basic compact button edit-file right floated" component="{{ file.full_name }}" type="component" theme="{{ theme_name }}">
-                    <i class="icon edit"></i>
+            <div class="content">               
+                <button 
+                    class="ui mini icon basic compact button edit-file right floated" 
+                    component="{{ file.full_name }}" 
+                    type="components" 
+                    theme="{{ theme_name }}"
+                    title="{{ labels.edit }}">
+                    <i class="icon blue code"></i>
                 </button>     
                 <div class="header">
                     {% if child_components|length > 0 %}
                         <a class="load-child-components" 
                             component-id="{{ file.id }}" 
                             parent="{{ file.full_name }}" 
-                            theme="{{ theme_name }}" 
-                            language="{{ language }}">
+                            type="components" 
+                            theme="{{ theme_name }}">
                             {{ file.name }}   
                         </a>
                     {% else %}   
                         {{ file.name }}   
                     {% endif %} 
                 </div>               
-                <div id="components_content_{{ file.id }}" class="mt-1 mb-1 hidden p-1">
+                <div id="components_content_{{ file.id }}" class="mt-1 mb-1 hidden pl-1 pr-0">
                 </div>
             </div>      
         </div>

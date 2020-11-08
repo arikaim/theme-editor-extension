@@ -6,45 +6,37 @@
  */
 'use strict';
 
-function ThemeEditorControlPanel() {
-  
-    this.translateComponent = function(theme, componentName, language, type, onSuccess, onError) {
+function EditorControlPanel() {
+    this.editor = null;
+
+    this.loadComponentFile = function(theme, componentName, type, onSuccess, onError) {
         var data = {
             theme: theme,
-            component_name: componentName,
-            language: language,
+            component: componentName,         
             type: type
         };
 
-        return arikaim.post('/api/translations/admin/translate/component',data,onSuccess,onError);
-    };
-
-    this.saveComponentProperty = function(formId, onSuccess, onError) {
-        return arikaim.post('/api/translations/admin/translate/save/property',formId,onSuccess,onError); 
-    };
-
-    this.translate = function(text, targetLanguage, sourceLanguage, onSuccess, onError) {
-        sourceLanguage = getDefaultValue(sourceLanguage,'auto');
+        return arikaim.put('/api/editor/admin/load/component/file',data,onSuccess,onError);
+    };   
+    
+    this.saveComponentFile = function(theme, componentName, type, content, onSuccess, onError) {    
         var data = {
-            target_language: targetLanguage,
-            source_language: sourceLanguage,
-            text: text
+            theme: theme,
+            component: componentName,   
+            content: content,     
+            type: type
         };
-        
-        return arikaim.put('/api/translations/admin/translate',data,onSuccess,onError);          
-    };
 
-    this.translateModel = function(options, onSuccess, onError) {        
-        return arikaim.post('/api/translations/admin/translate/model',options,onSuccess,onError);          
-    };
+        return arikaim.put('/api/editor/admin/save/component/file',data,onSuccess,onError);
+    }; 
 
-    this.init = function() {    
-        arikaim.ui.tab();
+    this.init = function() {
+        arikaim.ui.tab();        
     };
 }
 
-var themeEditor = new ThemeEditorControlPanel();
+var editorControlPanel = new EditorControlPanel();
 
 arikaim.page.onReady(function() {
-    themeEditor.init();
+    editorControlPanel.init();
 });

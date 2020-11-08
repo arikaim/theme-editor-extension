@@ -1,6 +1,10 @@
-<form class="h-full" method="POST" id="file_content_form">  
-    <textarea class="h-full w-full resize-none border-solid border-t-0 border-b-0 border-blue-300 border-l-1 pl-2" 
+<form class="h-full w-full" method="POST" id="file_content_form">  
+    <input type="hidden" name="theme" value="{{ theme }}" id="theme">
+    <input type="hidden" name="component" value="{{ component_name }}" id="component_name">
+    <input type="hidden" name="type" value="{{ type }}" id="type">
+   
+    <textarea 
+        class="h-full w-full resize-none border-t-0 border-b-0 border-blue-300 border-l-1 p-0 display-block" 
         name="content" 
-        id="content"
-    >{{ file_content }}</textarea>    
+        id="code_content"></textarea>    
 </form>

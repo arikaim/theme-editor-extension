@@ -1,9 +1,8 @@
-
 <div class="ui segment">
     <span class="font-bold p-1">
         {{ labels.theme }}
     </span>       
-    {{ component('system:admin.templates.dropdown') }}
+    {{ component('system:admin.templates.dropdown',{ skip: ['system'] }) }}
 </div>
 <div id="editor">        
 </div>
