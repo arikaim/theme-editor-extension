@@ -21,7 +21,11 @@
                 <div class="right floated content">      
                     <button 
                         class="ui mini icon basic compact button edit-file right floated" 
-                        component="{{ file.full_name }}" type="pages" theme="{{ theme_name }}" title="{{ labels.edit }}">
+                        component="{{ file.full_name }}" 
+                        type="pages" 
+                        component-id="{{ file.id }}"  
+                        theme="{{ theme_name }}" 
+                        title="{{ labels.edit }}">
                         <i class="icon blue code"></i>
                     </button>  
                 </div>
@@ -32,10 +36,14 @@
                             component-id="{{ file.id }}" 
                             parent="{{ file.full_name }}" 
                             theme="{{ theme_name }}">
-                            {{ file.name }}   
+                            <span id="component_title_{{ file.id }}" class="ui text component-title">
+                                {{ file.name }}   
+                            </span>
                         </a>
-                    {% else %}   
-                        {{ file.name }}   
+                    {% else %}  
+                        <span id="component_title_{{ file.id }}" class="ui text component-title"> 
+                            {{ file.name }} 
+                        </span>  
                     {% endif %} 
                 </div>
                 <div id="components_content_{{ file.id }}" class="mt-1 mb-1 hidden pl-1 pr-0">

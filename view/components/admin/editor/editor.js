@@ -72,6 +72,11 @@ function ThemeEditor() {
         arikaim.ui.button('.edit-file',function(element) {
             var theme = $(element).attr('theme');
             var type = $(element).attr('type');
+            var id = $(element).attr('component-id');
+            
+            $('.component-title').removeClass('green');
+            $('#component_title_' + id).addClass('green');
+
             var componentName = $(element).attr('component');
           
             self.editFile(theme,componentName,type);            

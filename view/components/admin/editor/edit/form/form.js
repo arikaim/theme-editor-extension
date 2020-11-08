@@ -19,7 +19,7 @@ $(document).ready(function() {
                     mode: "xml"
                 });
                 editorControlPanel.editor.setValue(result.content);     
-                editorControlPanel.editor.setSize('100%','100%');  
+                editorControlPanel.editor.setSize('100%','100vh');  
 
                 editorControlPanel.editor.on('change',function(CodeMirror,changeObj) {
                     $('.save-file').removeClass('disabled');                   
