@@ -1,40 +1,39 @@
 {% set template = package('template').createPackage(theme_name) %}
 {% set component_path = template.getComponentPath(component_name,type) %}
-<div class="h-full min-h-full">
-    <div class="ui horizontal segments">
-        <div class="ui segment">
-            {% if demo_mode != true %}
-            <button class="ui green button mini circular save-file disabled">
-                <i class="icon check"></i>
-                {{ labels.save }}
-            </button>
-            {% else %}
-            <div class="ui warning message">
-                {{ labels.demo }}
-            </div>
-            {% endif %}
-            <div class="float-right">
-                <div class="ui basic label">
-                    <i class="icon blue code"></i>
-                    {{ component_name }}
-                </div>
-            </div>           
+
+<div class="ui horizontal segments">
+    <div class="ui segment">
+        {% if demo_mode != true %}
+        <button class="ui green button mini circular save-file disabled">
+            <i class="icon check"></i>
+            {{ labels.save }}
+        </button>
+        {% else %}
+        <div class="ui warning message">
+            {{ labels.demo }}
         </div>
-        <div class="ui segment">
+        {% endif %}
+        <div class="float-right">
             <div class="ui basic label">
-                <i class="icon blue folder outline"></i>
-                ..{{ component_path|relativePath }}
+                <i class="icon blue code"></i>
+                {{ component_name }}
             </div>
-        </div>
-        <div class="ui segment">
+        </div>           
+    </div>
+    <div class="ui segment">
+        <div class="ui basic label">
+            <i class="icon blue folder outline"></i>
+            ..{{ component_path|relativePath }}
         </div>
     </div>
-    <div class="h-full min-h-full">
-        {{  component('editor::admin.editor.edit.form',{
-                theme: theme_name,
-                component_name: component_name,
-                type: type
-            }) 
-        }}
+    <div class="ui segment">
     </div>
+</div>
+<div class="">
+    {{  component('editor::admin.editor.edit.form',{
+            theme: theme_name,
+            component_name: component_name,
+            type: type
+        }) 
+    }}
 </div>
