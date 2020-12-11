@@ -8,15 +8,6 @@
 
 function PagesControlPanel() {
     var self = this;
-    
-    this.setStatus = function(uuid, status, onSuccess, onError) { 
-        var data = { 
-            status: status,
-            uuid: uuid 
-        };
-        
-        return arikaim.put('/api/editor/admin/pages/status',data,onSuccess,onError);           
-    };
 
     this.init = function() {
         paginator.init('view_pages',{
@@ -44,7 +35,7 @@ function PagesControlPanel() {
             var uuid = $(element).attr('uuid');
             var status = $(element).attr('status')
 
-            return self.setStatus(uuid,status,function(result) {
+            return editorControlPanel.setStatus(uuid,status,function(result) {
                 self.loadItem(uuid);
             });
         });

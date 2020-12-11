@@ -30,6 +30,19 @@ function EditorControlPanel() {
         return arikaim.put('/api/editor/admin/save/component/file',data,onSuccess,onError);
     }; 
 
+    this.savePageMetaTags = function(formId, onSuccess, onError) {    
+        return arikaim.put('/api/editor/admin/save/pages/metatags',formId,onSuccess,onError);
+    }; 
+
+    this.setStatus = function(uuid, status, onSuccess, onError) { 
+        var data = { 
+            status: status,
+            uuid: uuid 
+        };
+        
+        return arikaim.put('/api/editor/admin/pages/status',data,onSuccess,onError);           
+    };
+    
     this.init = function() {
         arikaim.ui.tab();        
     };

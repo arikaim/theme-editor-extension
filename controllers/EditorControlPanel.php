@@ -116,6 +116,20 @@ class EditorControlPanel extends ControlPanelApiController
     }
 
     /**
+     *  Save page meta tags
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request
+     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param Validator $data
+     * @return Psr\Http\Message\ResponseInterface
+    */
+    public function saveMetaTagsController($request, $response, $data) 
+    {  
+
+        $data->validate();   
+    }
+
+    /**
      * Get component file name.
      *
      * @param string $componentName

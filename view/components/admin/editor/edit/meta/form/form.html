@@ -1,0 +1,40 @@
+{% set language = language|default(current_language) %}
+{% set template = package('template').createPackage(theme_name) %}
+{% set component_path = template.getComponentPath(theme_component,'pages') %}
+{% set translation = template.readTranslation(theme_component,language,'pages') %}
+
+<div class="mt-4 pl-2">
+    {% if translation is iterable %}     
+    {% set head = translation.head %}
+    <form class="ui form" method="POST" id="meta_tags_form">  
+        <input type="hidden" name="theme" value="{{ theme_name }}" id="theme">
+        <input type="hidden" name="component_name" value="{{ theme_component }}" id="component_name">
+        <input type="hidden" name="type" value="pages" id="type">
+        <input type="hidden" name="language" value="{{ language }}" id="language">
+
+        <div class="field">
+            <label>{{ fields.title.label }}</label>
+            <input name="title" id="title" value="{{ head.title }}" placeholder="{{ fields.title.placeholder }}">
+        </div>
+        <div class="field">
+            <label>{{ fields.description.label }}</label>
+            <textarea placeholder="{{ fields.description.placeholder }}" name="description" id="description">{{ head.description }}</textarea>    
+        </div>
+        <div class="field">
+            <label>{{ fields.keywords.label }}</label>
+            <textarea placeholder="{{ fields.keywords.placeholder }}" name="keywords" id="keywords">{{ head.keywords }}</textarea>    
+        </div>
+        {{ component('components:form.footer') }}   
+    </form>
+    {% else %}
+    <div class="ui warning message">
+        <h4 class="ui header">
+            <i class="exclamation icon"></i>
+            {{ message.title }}           
+        </h4>
+        <p>
+            {{ message.content }}
+        </p>
+    </div>
+    {% endif %}
+</div>

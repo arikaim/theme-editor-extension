@@ -1,0 +1,20 @@
+{
+    "fields": {
+        "title": {
+            "label": "Title",
+            "placeholder": "Enter page title"
+        },
+        "description": {
+            "label": "Description",
+            "placeholder": "Enter page description"
+        },
+        "keywords": {
+            "label": "Keywords",
+            "placeholder": "Enter page keywords"
+        }
+    },
+    "message": {
+        "title": "Alert",
+        "content": "Page translation file not exist for this language."
+    }
+}

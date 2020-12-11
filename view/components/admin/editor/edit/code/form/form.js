@@ -5,7 +5,7 @@ $(document).ready(function() {
     var componentName = $('#component_name').val();
     var type = $('#type').val();
 
-    editorControlPanel.loadComponentFile(theme, componentName, type,function(result) {
+    editorControlPanel.loadComponentFile(theme,componentName,type,function(result) {
 
         arikaim.component.loadLibrary('codemirror:eclipse',function() {
             var textArea = document.getElementById('code_content');

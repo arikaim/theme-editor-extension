@@ -1,9 +1,15 @@
 {
+    "metatags": {
+        "save": "Page metatags saved successfully."
+    },
     "file": {
-        "save": "File saved successfully."
+        "save": "File saved successfully."       
     },
     "errors": {
         "file": "Not valid file name",
+        "metatags": {
+            "save": "Can't save page metatags."
+        },
         "theme_name": "Not valid theme name"
     }
 }

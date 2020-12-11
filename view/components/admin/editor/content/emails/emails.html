@@ -14,7 +14,7 @@
 {% endif %}
 <div class="ui list relaxed divided {{ class }}">
     {% for file in components %}       
-        {% set child_components = template.getComponents(file.full_name) %}  
+        {% set child_components = template.getEmails(file.full_name) %}  
         {% set path = template.getComponentPath(file.full_name)  %}
         <div class="item">           
             <i class="mail outline icon"></i>              

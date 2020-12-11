@@ -1,0 +1,42 @@
+{% set language = language|default(current_language) %}
+{% set template = package('template').createPackage(theme_name) %}
+{% set component_path = template.getComponentPath(theme_component,'pages') %}
+<div class="ui horizontal two segments">
+    <div class="ui segment">
+        <div class="pt-2">                     
+            <div class="ui basic label" title="{{ labels.page }}">
+                <i class="icon blue file outline"></i>
+                <span id="component_name">{{ theme_component }}</span>
+            </div>           
+            <div class="float-right">
+                <div class="ui basic label right floated" title="{{ labels.file }}">
+                    <i class="icon blue folder outline"></i>
+                    ..{{ component_path|relativePath }}
+                </div>   
+            </div>  
+        </div>               
+    </div>
+    <div class="ui segment">
+        <div class="float-right">
+            {{  component('components:language.dropdown',{
+                    name: 'language',
+                    id: 'choose_language',
+                    selected: language,
+                    class: 'inline search selection' 
+                })
+            }}
+        </div>        
+    </div>   
+</div>
+<div class="ui basic segment">  
+    <div class="ui ten wide grid">
+        <div class="ten wide column" id="meta_tags_content">
+            {{  component('editor::admin.editor.edit.meta.form',{                
+                    language: language,
+                    theme_component: theme_component,
+                    theme_name: theme_name
+                }) 
+            }}  
+        </div>    
+    </div>     
+</div>
