@@ -5,27 +5,15 @@ $(document).ready(function() {
     var componentName = $('#component_name').val();
     var type = $('#type').val();
 
-    editorControlPanel.loadComponentFile(theme,componentName,type,function(result) {
-
-        arikaim.component.loadLibrary('codemirror:eclipse',function() {
-            var textArea = document.getElementById('code_content');
-
-            arikaim.component.loadLibrary('codemirror:template',function() {
-                editorControlPanel.editor = CodeMirror.fromTextArea(textArea, {
-                    lineNumbers: true,
-                    styleActiveLine: true,
-                    lineWrapping: true,
-                    htmlMode: true,                  
-                    mode: "xml"
-                });
-                editorControlPanel.editor.setValue(result.content);     
-                editorControlPanel.editor.setSize('100%','800px');  
-
-                editorControlPanel.editor.on('change',function(CodeMirror,changeObj) {
-                    $('.save-file').removeClass('disabled');                   
-                });           
-            });
+    editorControlPanel.loadComponentFile(theme,componentName,type,function(result) {          
+        themeEditor.loadCodeEditor(result.content,function() {
+            console.log('remove');
+            $('#code_loader').remove();
+        });                     
+    },function(error) {
+        arikaim.page.loadContent({
+            id: 'file_content',
+            component: "editor::admin.editor.edit.code.form.message"                       
         });  
-              
-    });    
+    });        
 }); 

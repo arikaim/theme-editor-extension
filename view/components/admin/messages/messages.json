@@ -6,6 +6,7 @@
         "save": "File saved successfully."       
     },
     "errors": {
+        "code": "Component html code file not exist",
         "file": "Not valid file name",
         "metatags": {
             "save": "Can't save page metatags."

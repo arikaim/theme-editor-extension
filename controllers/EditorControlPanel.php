@@ -54,7 +54,11 @@ class EditorControlPanel extends ControlPanelApiController
             $this->error('errors.path');
             return false;
         }
-     
+        if (File::exists($fileName) == false) {
+            $this->error('errors.code');
+            return false;
+        }
+        
         $fileContent = File::read($fileName);
 
         $this->setResponse(true,function() use($theme,$component,$type,$fileContent) {                                
