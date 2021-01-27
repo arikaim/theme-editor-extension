@@ -40,7 +40,7 @@ class PagesControlPanel extends ControlPanelApiController
     {
         parent::__construct($container);
         
-        $this->setExtensionName(null);
+        $this->setExtensionName('editor');
         $this->setModelClass('Routes');
     }
 
