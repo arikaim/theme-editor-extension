@@ -50,6 +50,6 @@ function EditorControlPanel() {
 
 var editorControlPanel = new EditorControlPanel();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {
     editorControlPanel.init();
 });

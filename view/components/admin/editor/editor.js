@@ -108,6 +108,6 @@ function ThemeEditor() {
 
 var themeEditor = new ThemeEditor();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     themeEditor.init();    
 });

@@ -44,6 +44,6 @@ function PagesControlPanel() {
 
 var pagesControlPanel = new PagesControlPanel();
 
-arikaim.page.onReady(function() {
+arikaim.component.onLoaded(function() {
     pagesControlPanel.init();
 });

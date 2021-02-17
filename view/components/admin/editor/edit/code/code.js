@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {      
+arikaim.component.onLoaded(function() {   
     arikaim.ui.button('.save-file',function(element) {
         var content = editorControlPanel.editor.getValue();
         var theme = $('#theme').val();

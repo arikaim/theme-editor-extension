@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {      
+arikaim.component.onLoaded(function() {  
     var theme = $('#theme').val();
     var componentName = $('#component_name').val();
     var type = $('#type').val();
