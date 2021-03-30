@@ -32,11 +32,13 @@ function ThemeEditor() {
     };
 
     this.loadThemeEdit = function(theme) {
+        var component = ($('#toggle_mode').checkbox('is checked') == true) ? 'editor::admin.editor.menu' : 'editor::admin.editor.simple';
+
         arikaim.page.loadContent({
             id: 'editor',
-            component: "editor::admin.editor.menu",
+            component: component,
             params: { 
-                theme_name: theme
+                theme_name: theme              
             },
             useHeader: true
         },function(result) {
@@ -45,6 +47,15 @@ function ThemeEditor() {
     };
 
     this.init = function() {
+        $('#toggle_mode').checkbox({
+            onChange: function() {
+                var theme =  $('#templates_dropdown').dropdown('get value');
+                if (isEmpty(theme) == false) {
+                    self.loadThemeEdit(theme);   
+                }                     
+            }
+        });
+
         $('#templates_dropdown').dropdown({
             onChange: function(name) {
                 self.loadThemeEdit(name);                
@@ -65,7 +76,6 @@ function ThemeEditor() {
     };
 
     this.loadChildComponents = function(theme, parent, id, type) {          
-
         arikaim.page.loadContent({
             id: 'components_content_' + id,
             component: 'editor::admin.editor.content.' + type,

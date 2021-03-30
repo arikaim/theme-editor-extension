@@ -1,0 +1,21 @@
+{{ component('components:segment-title',{ title: title }) }}
+<div class="p-4 ui image rounded bordered">    
+    <div class="ui image">       
+        {% set path = '/images/logo.png?' ~ today() %}
+        <img src="{{ getTemplateUrl(theme_name,path) }}">
+    </div>
+    <div>
+        <div class="ui basic label fluid">
+            <div class="detail">
+                {{ labels.size }}
+            </div>
+            <span>{{ editor_params.width }}</span> x <span>{{ editor_params.height }}</span>
+        </div>
+    </div>  
+</div>
+{% component 'components:tabs.vertical.content' %}
+    {% set title = null %}
+    <div class="mt-8">
+        {{ component('image::admin.images.upload.form',editor_params) }}   
+    </div>
+{% endcomponent %}

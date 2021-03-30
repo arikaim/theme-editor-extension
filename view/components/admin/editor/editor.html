@@ -1,8 +1,24 @@
 <div class="ui segment">
-    <span class="font-bold p-1">
-        {{ labels.theme }}
-    </span>       
-    {{ component('system:admin.templates.dropdown',{ skip: ['system'] }) }}
+    <div class="ui grid">
+        <div class="two wide column">
+            <span class="font-bold p-1">
+                {{ labels.theme }}
+            </span>       
+            {{ component('system:admin.templates.dropdown',{ skip: ['system'] }) }}
+        </div>
+        <div class="two wide column">
+            <div class="p-2">
+                <span class="p-1">
+                    {{ labels.mode }}
+                </span> 
+                <label class="font-bold p-1 pr-2">{{ labels.simple }}</label>
+                <div class="ui toggle checkbox" id="toggle_mode">
+                    <input type="checkbox">
+                    <label class="font-bold">{{ labels.advanced }}</label>
+                </div>
+            </div>            
+        </div>
+    </div>   
 </div>
 <div id="editor">        
 </div>

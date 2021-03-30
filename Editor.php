@@ -24,10 +24,12 @@ class Editor extends Extension
     public function install()
     {
         // Control Panel
-        $this->addApiRoute('PUT','/api/editor/admin/load/component/file','EditorControlPanel','loadComponentFile','session'); 
-        $this->addApiRoute('PUT','/api/editor/admin/save/component/file','EditorControlPanel','saveComponentFile','session');   
-        $this->addApiRoute('PUT','/api/editor/admin/pages/status','PagesControlPanel','setStatus','session');
-        $this->addApiRoute('PUT','/api/editor/admin/save/pages/metatags','PagesControlPanel','saveMetatags','session');   
+        $this->addApiRoute('PUT','/api/admin/editor/load/component/file','EditorControlPanel','loadComponentFile','session'); 
+        $this->addApiRoute('PUT','/api/admin/editor/save/component/file','EditorControlPanel','saveComponentFile','session');   
+        $this->addApiRoute('PUT','/api/admin/editor/pages/status','PagesControlPanel','setStatus','session');
+        $this->addApiRoute('PUT','/api/admin/editor/save/pages/metatags','PagesControlPanel','saveMetatags','session');  
+        // options
+        $this->createOption('editor.mode','simple');   
     }
     
     /**
