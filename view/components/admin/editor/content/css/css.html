@@ -1,0 +1,31 @@
+{% set package = package('template').createPackage(theme_name) %}
+{% set theme = package.getProperties(true) %}
+{% set local = service('storage').mountLocal('theme.path',theme.path) %}
+{% set path = 'css' ~ DIRECTORY_SEPARATOR %}
+{% set files = getDirectoryFiles(path,false,'theme.path') %}
+{% if files is not iterable or files|length == 0 %}
+<div class="ui message">
+    {{ messages.empty }}
+</div>
+{% endif %}
+
+<div class="ui list relaxed divided {{ class }}">    
+    {% for file in files %}                   
+        <div class="item">                                         
+            <div class="content">                                                    
+                <div class="flex flex-row items-center">
+                    <button class="ui mini icon basic compact button edit-file" 
+                        theme="{{ theme_name }}" 
+                        title="{{ labels.edit }}"
+                        file-name="{{ file.basename }}">
+                        <i class="icon blue edit"></i>
+                    </button> 
+                    <i class="file code outline large icon"></i>                                  
+                    <span class="font-bold text-lg">
+                        {{ file.basename }}   
+                    </span>  
+                </div>                                                                                                        
+            </div>      
+        </div>
+    {% endfor %}
+</div>

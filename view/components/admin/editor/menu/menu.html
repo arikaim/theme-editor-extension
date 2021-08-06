@@ -3,7 +3,8 @@
     {% set items = [ 
         { title: links.components, component: 'editor::admin.editor.content.components', icon: 'code', active: true, params: params },
         { title: links.pages, component: 'editor::admin.editor.content.pages', icon: 'file outline', params: params },       
-        { title: links.emails, component: 'editor::admin.editor.content.emails', icon: 'mail outline', params: params }        
+        { title: links.emails, component: 'editor::admin.editor.content.emails', icon: 'mail outline', params: params },
+        { title: links.css, component: 'editor::admin.editor.content.css', icon: 'css3', params: params }          
     ] %}
 
     {{  component('components:tabs.vertical',{ 

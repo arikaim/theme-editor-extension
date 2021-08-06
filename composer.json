@@ -10,7 +10,8 @@
         "homepage": "http://arikaim.com"
     }],
     "require": {
-        "arikaim/installer": "*"
+        "arikaim/installer": "*",
+        "arikaim/code-mirror-library": "*"
     },
     "extra": {
         "path": "editor"
