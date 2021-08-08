@@ -12,15 +12,12 @@ namespace Arikaim\Extensions\Editor\Controllers;
 use Arikaim\Core\Utils\File;
 use Arikaim\Core\Utils\Utils;
 use Arikaim\Core\Controllers\ControlPanelApiController;
-use Arikaim\Core\Controllers\Traits\Status;
 
 /**
  * Pages control panel controller
 */
 class PagesControlPanel extends ControlPanelApiController
 {
-    use Status;
-
     /**
      * Init controller
      *
@@ -29,19 +26,6 @@ class PagesControlPanel extends ControlPanelApiController
     public function init()
     {
         $this->loadMessages('editor::admin.messages');
-    }
-
-    /**
-     * Constructor
-     * 
-     * @param Container|null $container 
-     */
-    public function __construct($container = null)
-    {
-        parent::__construct($container);
-        
-        $this->setExtensionName('editor');
-        $this->setModelClass('Routes');
     }
 
     /**

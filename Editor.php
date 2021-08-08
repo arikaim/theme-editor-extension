@@ -26,8 +26,10 @@ class Editor extends Extension
         // Control Panel
         $this->addApiRoute('PUT','/api/admin/editor/load/component/file','EditorControlPanel','loadComponentFile','session'); 
         $this->addApiRoute('PUT','/api/admin/editor/save/component/file','EditorControlPanel','saveComponentFile','session');   
-        $this->addApiRoute('PUT','/api/admin/editor/pages/status','PagesControlPanel','setStatus','session');
-        $this->addApiRoute('PUT','/api/admin/editor/save/pages/metatags','PagesControlPanel','saveMetatags','session');  
+        $this->addApiRoute('PUT','/api/admin/editor/save/pages/metatags','PagesControlPanel','saveMetatags','session'); 
+        // files
+        $this->addApiRoute('PUT','/api/admin/editor/file/load/{theme}/{name}','FilesControlPanel','loadFile','session');
+        
         // options
         $this->createOption('editor.mode','simple');   
     }

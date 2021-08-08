@@ -63,6 +63,18 @@ function ThemeEditor() {
         });              
     };
 
+    this.editThemeFile =  function(theme, file_name, type) {
+        arikaim.page.loadContent({
+            id: 'edit_file',
+            component: 'editor::admin.editor.file.code',
+            params: { 
+                theme_name: theme,
+                file_name: file_name,
+                type: type
+            }
+        });
+    };
+
     this.editFile = function(theme, componentName, type) {
         arikaim.page.loadContent({
             id: 'edit_file',

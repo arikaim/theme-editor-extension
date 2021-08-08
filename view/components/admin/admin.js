@@ -9,6 +9,16 @@
 function EditorControlPanel() {
     this.editor = null;
 
+    this.loadFile = function(theme, fileName, type, onSuccess, onError) {
+        var data = {
+            theme: theme,
+            component: componentName,         
+            type: type
+        };
+
+        return arikaim.put('/api/admin/editor/load/component/file',data,onSuccess,onError);
+    };   
+
     this.loadComponentFile = function(theme, componentName, type, onSuccess, onError) {
         var data = {
             theme: theme,
