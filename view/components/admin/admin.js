@@ -9,7 +9,24 @@
 function EditorControlPanel() {
     this.editor = null;
 
-    this.loadFile = function(theme, fileName, type, onSuccess, onError) {
+    this.loadThemeFile = function(theme, fileName, type, onSuccess, onError) {
+        type = (isEmpty(type) == true) ? 'css' : type;
+        
+        return arikaim.get('/api/admin/editor/file/load/' + theme + '/' + fileName + '/' + type,onSuccess,onError);
+    };
+
+    this.saveThemeFile = function(theme, fileName, type, content, onSuccess, onError) {      
+        var data = {
+            theme: theme,
+            file_name: fileName,
+            type: (isEmpty(type) == true) ? 'css' : type,
+            content: content
+        };
+
+        return arikaim.put('/api/admin/editor/file/save',data,onSuccess,onError);
+    };
+
+    this.loadFile = function(theme, componentName, type, onSuccess, onError) {
         var data = {
             theme: theme,
             component: componentName,         

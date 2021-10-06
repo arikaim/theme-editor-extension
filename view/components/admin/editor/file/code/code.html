@@ -16,7 +16,7 @@
     <div class="ui segment">
         <div class="ui basic label">
             <i class="icon blue folder outline"></i>
-            ..{{ file_path|relativePath }}{{ file_name }}
+            ..{{ file_path|relativePath }}/{{ type }}/{{ file_name }}
         </div>
     </div>
     <div class="ui segment">
@@ -26,6 +26,7 @@
     {{  component('editor::admin.editor.file.code.form',{
             theme: theme_name,
             file_name: file_name,
+            mode: mode,
             type: type
         }) 
     }}

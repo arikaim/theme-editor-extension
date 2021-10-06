@@ -4,6 +4,7 @@
         "pages": "Pages",
         "libraries": "Libraries",
         "css": "Css Files",
+        "vars": "Variables",
         "js": "Js Files",
         "emails": "Emails",
         "settings": "Settings"

@@ -9,18 +9,37 @@
 function ThemeEditor() {
     var self = this;
 
-    this.loadCodeEditor = function(code, onSuccess) {
+    this.loadCodeEditor = function(code, onSuccess, mode) {
+        mode = (isEmpty(mode) == true) ? 'xml' : mode;
+        var libraryName = 'codemirror:template';
+        switch(mode) {
+            case 'css': 
+                libraryName = 'codemirror:css';
+                break;
+            case 'js': 
+                libraryName = 'codemirror:js';
+                break;
+            case 'javascript': 
+                libraryName = 'codemirror:js';
+                break;
+            case 'php': 
+                libraryName = 'codemirror:php';
+                break;           
+        }
+        
         arikaim.component.loadLibrary('codemirror:eclipse',function() {
             var textArea = document.getElementById('code_content');
 
-            arikaim.component.loadLibrary('codemirror:template',function() {
+            arikaim.component.loadLibrary(libraryName,function() {
                 editorControlPanel.editor = CodeMirror.fromTextArea(textArea, {
                     lineNumbers: true,
                     styleActiveLine: true,
                     lineWrapping: true,
-                    htmlMode: true,                  
-                    mode: "xml"
+                    htmlMode: true,  
+                    jsonld: true,                
+                    mode: mode
                 });
+              
                 editorControlPanel.editor.setValue(code);     
                 editorControlPanel.editor.setSize('100%','800px');  
                 editorControlPanel.editor.on('change',function(CodeMirror,changeObj) {
@@ -63,14 +82,15 @@ function ThemeEditor() {
         });              
     };
 
-    this.editThemeFile =  function(theme, file_name, type) {
+    this.editThemeFile =  function(theme, fileName, type, mode) {
         arikaim.page.loadContent({
             id: 'edit_file',
             component: 'editor::admin.editor.file.code',
             params: { 
                 theme_name: theme,
-                file_name: file_name,
-                type: type
+                file_name: fileName,
+                type: type,
+                mode: mode
             }
         });
     };
