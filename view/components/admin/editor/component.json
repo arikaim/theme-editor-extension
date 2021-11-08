@@ -1,4 +1,9 @@
 {
+    "include": {
+        "js": [
+            "system:options"           
+        ]
+    },
     "access": {
         "auth": "session",
         "redirect": "/admin",

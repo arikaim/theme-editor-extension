@@ -1,4 +1,4 @@
-{{ component('components:segment-title',{ title: title }) }}
+{{ component('semantic~segment-title',{ title: title }) }}
 <div class="p-4 ui image rounded bordered">    
     <div id="image_content" theme-name="{{ theme_name }}">
         {{ component('editor::admin.editor.simple.logo.image',{ theme_name: theme_name }) }}   
@@ -13,7 +13,7 @@
     </div>  
 </div>
 {% if demo_mode != true %}
-{% component 'components:tabs.vertical.content' %}
+{% component 'semantic~tabs.vertical.content' %}
     {% set title = null %}
     <div class="mt-8">
         {{ component('image::admin.images.upload.form',editor_params) }}   

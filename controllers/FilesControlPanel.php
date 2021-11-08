@@ -10,7 +10,6 @@
 namespace Arikaim\Extensions\Editor\Controllers;
 
 use Arikaim\Core\Utils\File;
-use Arikaim\Core\Utils\Utils;
 use Arikaim\Core\Controllers\ControlPanelApiController;
 
 /**

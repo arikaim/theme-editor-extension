@@ -69,15 +69,19 @@ function ThemeEditor() {
         $('#toggle_mode').checkbox({
             onChange: function() {
                 var theme =  $('#templates_dropdown').dropdown('get value');
+                var checked = $('#toggle_mode').checkbox('is checked');
+
                 if (isEmpty(theme) == false) {
-                    self.loadThemeEdit(theme);   
+                    self.loadThemeEdit(theme);                    
+                    options.save('editor.mode',checked);    
                 }                     
             }
         });
 
         $('#templates_dropdown').dropdown({
             onChange: function(name) {
-                self.loadThemeEdit(name);                
+                self.loadThemeEdit(name); 
+                options.save('editor.current.theme',name);                    
             }
         });              
     };

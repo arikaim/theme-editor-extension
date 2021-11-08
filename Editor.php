@@ -27,11 +27,12 @@ class Editor extends Extension
         $this->addApiRoute('PUT','/api/admin/editor/load/component/file','EditorControlPanel','loadComponentFile','session'); 
         $this->addApiRoute('PUT','/api/admin/editor/save/component/file','EditorControlPanel','saveComponentFile','session');   
         $this->addApiRoute('PUT','/api/admin/editor/save/pages/metatags','PagesControlPanel','saveMetatags','session'); 
-        // files
+        // Files
         $this->addApiRoute('GET','/api/admin/editor/file/load/{theme}/{name}/{type}','FilesControlPanel','loadFile','session');
         $this->addApiRoute('PUT','/api/admin/editor/file/save','FilesControlPanel','saveFile','session');   
-        // options
-        $this->createOption('editor.mode','simple');   
+        // Options
+        $this->createOption('editor.mode','simple');  
+        $this->createOption('editor.current.theme',null);   
     }
     
     /**
