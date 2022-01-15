@@ -15,5 +15,7 @@ Arikaim CMS theme editor extension
 #### Installation
 
 ```sh
+
 composer require arikaim/theme-editor-extension
+
 ```
