@@ -1,0 +1,26 @@
+{% set target_path = templates_path ~ theme_name ~ '/images/' %}
+
+{{ component('semantic~segment-title',{ title: title, icon: 'upload' }) }}
+{% if hasExtension('image') == true %}
+    <div class="mt-8 p-2">
+        {% if demo_mode != true %}
+            {% component 'semantic~tabs.vertical.content' %}
+                {% set title = null %}
+                <div class="mt-8">
+                    {{  component('image::admin.images.upload.form',{
+                            target_path: target_path
+                        }) 
+                    }}   
+                </div>
+            {% endcomponent %}
+        {% else %}
+            <div class="ui warning message">
+                {{ messages.demo }}
+            </div>
+        {% endif %}
+    </div>
+{% else %}
+    <div class="ui warning message">
+        {{ messages.extension }}
+    </div>
+{% endif %}

@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div>
     {% set params = { theme_name: theme_name } %}
     {{  component('semantic~tabs.vertical',{ 
             items: [ 
@@ -6,6 +6,7 @@
                 { title: links.pages, component: 'editor::admin.editor.content.pages', icon: 'file outline', params: params },       
                 { title: links.emails, component: 'editor::admin.editor.content.emails', icon: 'mail outline', params: params },
                 { title: links.css, component: 'editor::admin.editor.content.css', icon: 'css3', params: params },
+                { title: links.images, component: 'editor::admin.editor.content.images', icon: 'images outline', params: params },
                 { title: links.vars, component: 'editor::admin.editor.content.vars', icon: 'code', params: params }                
             ], 
             menu: { id: 'editor_menu' }, 

@@ -1,0 +1,9 @@
+{
+    "title": "Image Upload",
+    "labels": {
+    },
+    "messages": {   
+        "demo": "Disabled in demo mode",
+        "extension": "Image extension not installed!"
+    }
+}

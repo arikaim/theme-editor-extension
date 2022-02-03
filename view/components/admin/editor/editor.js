@@ -65,6 +65,10 @@ function ThemeEditor() {
         });     
     };
 
+    this.getCurrentTheme = function() {
+        return $('#templates_dropdown').dropdown('get value');
+    };
+
     this.init = function() {
         $('#toggle_mode').checkbox({
             onChange: function() {
