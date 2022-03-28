@@ -31,7 +31,7 @@ class Editor extends Extension
         $this->addApiRoute('GET','/api/admin/editor/file/load/{theme}/{name}/{type}','FilesControlPanel','loadFile','session');
         $this->addApiRoute('PUT','/api/admin/editor/file/save','FilesControlPanel','saveFile','session');   
         // Options
-        $this->createOption('editor.mode','simple');  
+        $this->createOption('editor.mode',false);  
         $this->createOption('editor.current.theme',null);   
     }
     

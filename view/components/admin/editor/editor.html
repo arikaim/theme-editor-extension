@@ -14,7 +14,7 @@
                     {{ labels.mode }}
                 </span>              
                 <label class="font-bold p-1 pr-2">{{ labels.simple }}</label>
-                <div class="ui toggle checkbox " id="toggle_mode">
+                <div class="ui toggle checkbox" id="toggle_mode">
                     <input type="checkbox" {{ (editor_mode == true) ? 'checked' : '' }}>
                     <label class="font-bold">{{ labels.advanced }}</label>
                 </div>
@@ -23,7 +23,11 @@
     </div>   
 </div>
 <div id="editor">   
-    {% if editor_mode == true and selected_theme is not empty %}
-        {{ component('editor::admin.editor.menu',{ theme_name: selected_theme }) }}   
+    {% if selected_theme is not empty %}
+        {% if editor_mode == false or editor_mode is empty %}
+            {{ component('editor::admin.editor.simple',{ theme_name: selected_theme }) }} 
+        {% else %}
+            {{ component('editor::admin.editor.menu',{ theme_name: selected_theme }) }} 
+        {% endif %}  
     {% endif %}     
 </div>
