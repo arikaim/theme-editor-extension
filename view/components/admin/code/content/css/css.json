@@ -1,0 +1,9 @@
+{
+    "title": "Css Files",
+    "labels": {
+        "edit": "Edit"
+    },
+    "messages": {
+        "empty": "No css files in theme."
+    }
+}

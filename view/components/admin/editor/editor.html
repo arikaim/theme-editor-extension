@@ -1,33 +1,19 @@
-{% set selected_theme = getOption('editor.current.theme') %}
-{% set editor_mode = getOption('editor.mode') %}
 <div class="ui segment">
     <div class="ui grid">
-        <div class="six wide column">
+        <div class="ten wide column">
             <span class="font-bold p-1">
                 {{ labels.theme }}
             </span>       
             {{ component('system:admin.templates.dropdown',{ skip: ['system'], selected: selected_theme }) }}
+
+            <span class="font-bold p-1 hidden" id="page_label">
+                {{ labels.page }}
+            </span>
+            <span class="" id="page_selector">               
+            </span>       
         </div>
-        <div class="ten wide column">
-            <div class="p-2">
-                <span class="p-1">
-                    {{ labels.mode }}
-                </span>              
-                <label class="font-bold p-1 pr-2">{{ labels.simple }}</label>
-                <div class="ui toggle checkbox" id="toggle_mode">
-                    <input type="checkbox" {{ (editor_mode == true) ? 'checked' : '' }}>
-                    <label class="font-bold">{{ labels.advanced }}</label>
-                </div>
-            </div>            
-        </div>
-    </div>   
+    </div> 
 </div>
-<div id="editor">   
-    {% if selected_theme is not empty %}
-        {% if editor_mode == false or editor_mode is empty %}
-            {{ component('editor::admin.editor.simple',{ theme_name: selected_theme }) }} 
-        {% else %}
-            {{ component('editor::admin.editor.menu',{ theme_name: selected_theme }) }} 
-        {% endif %}  
-    {% endif %}     
+<div id="page_editor">
+    
 </div>

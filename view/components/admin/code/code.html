@@ -1,0 +1,18 @@
+{% set selected_theme = getOption('editor.current.theme') %}
+<div class="ui segment">
+    <div class="ui grid">
+        <div class="six wide column">
+            <span class="font-bold p-1">
+                {{ labels.theme }}
+            </span>       
+            {{ component('system:admin.templates.dropdown',{ skip: ['system'], selected: selected_theme }) }}
+        </div>
+        <div class="ten wide column">    
+        </div>
+    </div>   
+</div>
+<div id="editor">   
+    {% if selected_theme is not empty %}
+        {{ component('editor::admin.code.menu',{ theme_name: selected_theme }) }} 
+    {% endif %}     
+</div>

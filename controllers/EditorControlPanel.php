@@ -60,15 +60,13 @@ class EditorControlPanel extends ControlPanelApiController
         }
         
         $fileContent = File::read($fileName);
-
-        $this->setResponse(true,function() use($theme,$component,$type,$fileContent) {                                
-            $this
-                ->message('file.load')
-                ->field('theme',$theme)
-                ->field('content',$fileContent)
-                ->field('type',$type)                 
-                ->field('component',$component);                                       
-        },'errors.save');
+                  
+        $this
+            ->message('file.load')
+            ->field('theme',$theme)
+            ->field('content',$fileContent)
+            ->field('type',$type)                 
+            ->field('component',$component);                                               
     }
 
     /**

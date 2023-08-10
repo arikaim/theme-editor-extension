@@ -1,0 +1,11 @@
+{
+    "title": "Image Files",
+    "labels": {
+        "edit": "Edit",
+        "upload": "Upload",
+        "help": "Help"
+    },
+    "messages": {
+        "empty": "No image files in theme."
+    }
+}

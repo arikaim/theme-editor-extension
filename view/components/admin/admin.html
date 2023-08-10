@@ -1,6 +1,7 @@
 {{  component('semantic~tabs',{ 
         items: [ 
-            { id: 'editor_tab', title: labels.editor, icon: 'edit', component: 'editor::admin.editor', active: true }                              
+            { id: 'editor_tab', title: labels.editor, icon: 'edit', component: 'editor::admin.editor', active: true },                         
+            { id: 'cpde_tab', title: labels.code, icon: 'code', component: 'editor::admin.code'}                              
         ],
         menu: { component: 'system:admin.extensions.menu.actions', extension: 'editor' },
         content: { component: 'editor::admin.editor' } 

@@ -1,0 +1,13 @@
+<div id="file_content">
+    <div class="ui active blue centered loader" id="code_loader"></div>
+    <form class="h-full w-full" method="POST" id="file_content_form">  
+        <input type="hidden" name="theme" value="{{ theme }}" id="theme">
+        <input type="hidden" name="file_name" value="{{ file_name }}" id="file_name">
+        <input type="hidden" name="type" value="{{ type }}" id="type">
+        <input type="hidden" name="mode" value="{{ mode }}" id="mode">
+        <textarea 
+            class="w-full resize-none border-t-0 border-b-0 border-blue-300 border-l-1 p-0 display-block" 
+            name="content" 
+            id="code_content"></textarea>    
+    </form>
+</div>

@@ -1,0 +1,13 @@
+{
+    "title": "Components",
+    "labels": {
+        "translate": "Create language translation",
+        "new": "New",
+        "edit": "Edit",
+        "child": "Open child components",
+        "translations": "Language translations"
+    },
+    "messages": {
+        "empty": "No emails in theme."
+    }
+}
