@@ -11,8 +11,7 @@ namespace Arikaim\Extensions\Editor\Controllers;
 
 use Arikaim\Core\Db\Model;
 use Arikaim\Core\Controllers\Controller;
-use Arikaim\Core\Collection\Arrays;
-use Arikaim\Core\Paginator\Paginator;
+use Arikaim\Core\Http\Url;
 
 /**
  * Editor page controler
@@ -27,38 +26,20 @@ class EditorPage extends Controller
      * @param Validator $data
      * @return Psr\Http\Message\ResponseInterface
     */
-    public function showEditorPage($request, $response, $data) 
+    public function showEditor($request, $response, $data) 
     {       
-        $slug = $data->get('slug',null);
-        $pageUrl = $this->getParam('page_url','/blog/');
+        $theme = $data->get('theme',null);
+        $page = $data->get('page',null);
+        $language = $this->getPageLanguage($data,false);          
 
-       
-        $perPage = $this->get('options')->get('blog.posts.perpage',7);
-
-        $pages = Model::Pages('blog');
-        $posts = Model::Posts('blog')->getNotDeletedQuery()->where('status','=',1);
-
-        $page = null;
-        if (empty($slug) == false) {
-            $page = $pages->findBySlug($slug);    
-            if ($page == null) {
-                // page not found
-                return $this->pageNotFound($response,$data->toArray());
-            } 
-            if ($page->status != $page->ACTIVE()) {
-                // page not published
-                return $this->pageNotFound($response,$data->toArray());
-            }
-            if ($page->isDeleted() == true) {
-                // page is deleted
-                return $this->pageNotFound($response,$data->toArray());
-            }
+        if ($this->hasControlPanelAccess() == false) {         
+            return $this->withRedirect($response,Url::BASE_URL . '/admin');              
         }
-       
-        if ($page != null) {
-            $posts = $posts->where('page_id','=',$page->id);          
-            $data['page_title'] = $page->name;
-            $data['page_url'] = $pageUrl . $slug;
-        }    
+        
+        $this->get('page')->setRenderMode(1); // Edit mode
+        $component = $this->get('page')->render($theme . ':' . $page,$data->toArray(),$language);
+        $data['page_content'] = $component->getHtmlCode();
+     
+        return $this->pageLoad($request,$response,$data->toArray(),'system:page-editor','en');  
     }   
 }

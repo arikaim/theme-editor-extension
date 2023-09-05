@@ -24,7 +24,7 @@ class Editor extends Extension
     public function install()
     {
         // Editor page
-        $this->addPageRoute('/admin/editor/{theme}','EditorPage','showEditor','editor::page-editor',null,'editorPage',false);
+        $this->addPageRoute('/admin/editor/{theme}/{page}','EditorPage','showEditor','editor::page-editor',null,'editorPage',false);
         // Control Panel
         $this->addApiRoute('PUT','/api/admin/editor/load/component/file','EditorControlPanel','loadComponentFile','session'); 
         $this->addApiRoute('PUT','/api/admin/editor/save/component/file','EditorControlPanel','saveComponentFile','session');   

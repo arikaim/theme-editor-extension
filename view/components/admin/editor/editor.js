@@ -45,7 +45,7 @@ function ThemeEditor() {
             id: 'page_editor',
             component: 'editor::admin.editor.pages.edit',
             params: { 
-                theme_name: theme,
+                theme: theme,
                 page_name: page              
             }
         },function(result) {

@@ -1,3 +1,10 @@
-<div>
-    Page Editor
+<div>   
+    <a 
+        href="{{ url('/admin/editor/' ~ theme ~ '/' ~ page_name) }}"
+        target="editor"
+        class="ui icon basic curcular button" 
+        title="{{ labels.full }}">
+        <i class="icon window maximize"></i>
+    </a>
 </div>
+{{ page_content }}
