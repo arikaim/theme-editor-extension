@@ -46,7 +46,8 @@ function ThemeEditor() {
             component: 'editor::admin.editor.pages.edit',
             params: { 
                 theme: theme,
-                page_name: page              
+                page_name: page,
+                full_screen_button: true             
             }
         },function(result) {
           

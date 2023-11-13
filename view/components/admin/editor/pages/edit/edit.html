@@ -1,10 +1,18 @@
 <div>   
+    {% if full_screen_button == true %}
     <a 
-        href="{{ url('/admin/editor/' ~ theme ~ '/' ~ page_name) }}"
+        href="{{ url('/admin/editor/' ~ theme ~ '/' ~ page_name ~ '?full_screen_button=0') }}"
         target="editor"
         class="ui icon basic curcular button" 
         title="{{ labels.full }}">
         <i class="icon window maximize"></i>
     </a>
+    {% endif %}
 </div>
-{{ page_content }}
+<div class="relative flex flex-row items-start">
+    <div class="flex-grow w-full">
+        {{ page_content }}
+    </div>
+    <div class="absolute w-1/4 z-index-100 top-0 right-0 h-full hidden" id="component_editor">
+    </div>
+</div>

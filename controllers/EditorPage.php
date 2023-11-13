@@ -31,6 +31,7 @@ class EditorPage extends Controller
         $theme = $data->get('theme',null);
         $page = $data->get('page',null);
         $language = $this->getPageLanguage($data,false);          
+        $data['full_screen_button'] = $this->getQueryParam($request,'full_screen',1);
 
         if ($this->hasControlPanelAccess() == false) {         
             return $this->withRedirect($response,Url::BASE_URL . '/admin');              

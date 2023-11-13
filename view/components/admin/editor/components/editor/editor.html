@@ -1,6 +1,28 @@
-<div class="border border-red-500 h-full w-64 h-min-screen">
+{% set props = componentProperties(component_name,current_language) %}
+<div class="border z-index-100 border-gray-200 h-full shadow bg-white p-2">
     {{ component('semantic~panel.title',{ title: title }) }}
-    <div>
+    <h4 class="font-bold p-2 text-lg">
         {{ component_name }}
+    </h4>
+    <div>
+        <h4 class="font-bold py-8 text-lg">
+            {{ labels.props }}
+        </h4>
+        <div>
+            <form class="ui form" id="component_properties_form">
+                {% for key, field in props['context']['_editor']['props'] %}
+                    {{  component('editor::admin.editor.components.editor.field',{ 
+                            key: key, 
+                            value: props['properties'][key], 
+                            field: field 
+                        }) 
+                    }}           
+                {% endfor %}
+                {{ component('semantic~form.footer') }}   
+            </form>
+        </div>
+        <h4 class="font-bold py-8 text-lg">
+            {{ labels.styles }}
+        </h4>
     </div>
 </div>

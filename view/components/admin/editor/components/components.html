@@ -1,14 +1,9 @@
-<div class="border border-red-500 border-solid relative">
+<div class="hover:border hover:border-red-500 hover:border-solid relative">
     <btn 
         component="{{ edit_component['_component_name'] }}"
         title="{{ tooltips.edit }}"
-        class="z-index-100 absolute top-0 right-0 edit-component block cursor-pointer text-green-500">
-        {{ component('icons~edit',{ size: 'h-10 w-10', color: 'text-green-500' }) }}
+        class="z-index-50 absolute top-0 right-0 edit-component block cursor-pointer text-green-500">
+        {{ component('icons~edit',{ size: 'h-10 w-10', class: 'text-green-500' }) }}
     </btn>
-    <div 
-        class="z-index-100 absolute top-0 right-0 hidden" 
-        id="component_editor">
-
-    </div>
     {{ edit_component_html }}
 </div>
