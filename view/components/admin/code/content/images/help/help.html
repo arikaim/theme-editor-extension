@@ -1,17 +1,22 @@
-{{ component('semantic~segment-title',{ title: title, icon: 'info' }) }}
-<div class="mt-8">
-    <div class="flex flex-col">
-        <div>
-            <img class="image rounded bordered" src="{{ template_url }}/images/{{ file_name }}">
-        </div>
-        <div class="font-bold">
-            {{ file_name }}
-        </div>
+<div class="ui two column grid">
+    <div class="column">
+        {% component 'semantic~panel' %}
+            <div class="mt-2">
+                <div class="flex flex-col">
+                    <div>
+                        <img class="image rounded bordered" src="{{ template_url }}/images/{{ file_name }}">
+                    </div>
+                    <div class="font-bold">
+                        {{ file_name }}
+                    </div>
+                </div>
+                <h4>{{ labels.code }}</h4>
+                {{  component('semantic~code',{ 
+                        language: 'twig', 
+                        content: ' <img src="{{ template_url }}/images/' ~ file_name ~ '">'
+                    }) 
+                }}
+            </div>
+        {% endcomponent %}
     </div>
-    <h4>{{ labels.code }}</h4>
-    {{  component('semantic~code',{ 
-            language: 'twig', 
-            content: ' <img src="{{ template_url }}/images/' ~ file_name ~ '">'
-        }) 
-    }}
 </div>

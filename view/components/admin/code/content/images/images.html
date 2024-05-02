@@ -24,10 +24,10 @@
                         file-name="{{ file.basename }}">
                         <i class="icon blue info"></i>
                     </button> 
-                   <img 
+                    <img 
                         title="{{ file.basename }}"
                         class="ui small image rounded" 
-                        src="{{ template_url }}/images/{{ file.basename }}">                                           
+                        src="{{ getTemplateUrl(theme_name,'/images/' ~ file.basename,false) }}">                                           
                 </div>                                                                                                        
             </div>      
         </div>

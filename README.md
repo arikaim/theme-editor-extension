@@ -1,10 +1,10 @@
-## Arikaim CMS Theme Editor Extension
+## Arikaim CMS Template Editor Extension
 ![version: 1.0.0](https://img.shields.io/github/release/arikaim/theme-editor-extension.svg)
 ![license: GPL3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
 
 
-Arikaim CMS theme editor extension
+Arikaim CMS template editor extension
 
 
 #### Requirements  

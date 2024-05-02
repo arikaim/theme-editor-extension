@@ -8,6 +8,6 @@
         "translations": "Language translations"
     },
     "messages": {
-        "empty": "No emails in theme."
+        "empty": "No emails in template."
     }
 }

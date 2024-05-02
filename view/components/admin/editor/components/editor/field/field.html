@@ -1,9 +1,0 @@
-<div class="field">
-    <label>
-        {{ field.label|default(key) }}
-    </label>
-   
-    {% if field.type == 'text' %}
-        <input type="text" name="{{ key }}" id="{{ key }}" value="{{ value }}">
-    {% endif %}
-</div>

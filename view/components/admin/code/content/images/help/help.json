@@ -1,5 +1,6 @@
 {
     "title": "Image Details",
+    "icon": "info",
     "labels": {
         "code": "Template Code"
     }

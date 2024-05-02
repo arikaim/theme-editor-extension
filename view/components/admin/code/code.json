@@ -1,9 +1,7 @@
 {
     "labels": {
-        "theme": "Theme",
+        "theme": "Template",
         "mode": "Mode",
-        "simple": "Simple",
-        "advanced": "Advanced",
         "text":  "Text",
         "languages": "Languages"                                
     }
