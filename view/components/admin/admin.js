@@ -69,14 +69,10 @@ function EditorControlPanel() {
         
         return arikaim.put('/api/admin/editor/pages/status',data,onSuccess,onError);           
     };
-    
-    this.init = function() {
-        arikaim.ui.tab();        
-    };
 }
 
 var editorControlPanel = new EditorControlPanel();
 
 arikaim.component.onLoaded(function() {
-    editorControlPanel.init();
+    arikaim.ui.tab();        
 });

@@ -1,9 +1,0 @@
-{% set template = package('template').getPackageProperties(theme_name,false) %}
-{% set item = template.editor[editor_item] %}
-{% set editor_params = item.params %}
-{% if editor_params is iterable %}
-    {% set editor_params = editor_params|renderArray(_context) %}
-{% endif %}
-<div class="p-1">  
-    {{ component(component,{ editor_params: editor_params, theme_name: theme_name }) }}   
-</div>

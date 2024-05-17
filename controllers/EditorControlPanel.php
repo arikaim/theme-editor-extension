@@ -33,7 +33,7 @@ class EditorControlPanel extends ControlPanelApiController
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @param \Psr\Http\Message\ResponseInterface $response
      * @param Validator $data
-     * @return Psr\Http\Message\ResponseInterface
+     * @return mixed
     */
     public function loadComponentFileController($request, $response, $data) 
     { 
@@ -75,60 +75,45 @@ class EditorControlPanel extends ControlPanelApiController
      * @param \Psr\Http\Message\ServerRequestInterface $request
      * @param \Psr\Http\Message\ResponseInterface $response
      * @param Validator $data
-     * @return Psr\Http\Message\ResponseInterface
+     * @return mixed
     */
     public function saveComponentFileController($request, $response, $data) 
     {  
-        $this->onDataValid(function($data) {     
-            $theme = $data->get('theme');           
-            $type = $data->get('type');
-            $component = $data->get('component');
-            $content = $data->get('content');
-
-            $packageManager = $this->get('packages')->create('template');
-            $package = $packageManager->createPackage($theme);
-            if (\is_object($package) == false) {
-                $this->error('errors.theme_name');
-                return false;
-            }
-
-            $path = $package->getComponentPath($component,$type);
-            $fileName = $path . DIRECTORY_SEPARATOR . $this->getComponentFileName($component);
-            if (File::exists($fileName) == false) {
-                $this->error('errors.file');
-                return false;
-            }
-            if (File::isWritable($fileName) == false) {
-                File::setWritable($fileName);
-            }
-
-            $result = File::write($fileName,$content);
-
-            $this->setResponse($result,function() use($theme,$component,$type) {                                
-                $this
-                    ->message('file.save')
-                    ->field('theme',$theme)
-                    ->field('type',$type)                 
-                    ->field('component',$component);                                       
-            },'errors.save');
-        });
         $data
             ->addRule('text:min=2','theme')             
-            ->validate();   
-    }
+            ->validate(true);  
+       
+        $theme = $data->get('theme');           
+        $type = $data->get('type');
+        $component = $data->get('component');
+        $content = $data->get('content');
 
-    /**
-     *  Save page meta tags
-     *
-     * @param \Psr\Http\Message\ServerRequestInterface $request
-     * @param \Psr\Http\Message\ResponseInterface $response
-     * @param Validator $data
-     * @return Psr\Http\Message\ResponseInterface
-    */
-    public function saveMetaTagsController($request, $response, $data) 
-    {  
+        $packageManager = $this->get('packages')->create('template');
+        $package = $packageManager->createPackage($theme);
+        if (\is_object($package) == false) {
+            $this->error('errors.theme_name');
+            return false;
+        }
 
-        $data->validate();   
+        $path = $package->getComponentPath($component,$type);
+        $fileName = $path . DIRECTORY_SEPARATOR . $this->getComponentFileName($component);
+        if (File::exists($fileName) == false) {
+            $this->error('errors.file');
+            return false;
+        }
+        if (File::isWritable($fileName) == false) {
+            File::setWritable($fileName);
+        }
+
+        $result = File::write($fileName,$content);
+
+        $this->setResponse($result,function() use($theme,$component,$type) {                                
+            $this
+                ->message('file.save')
+                ->field('theme',$theme)
+                ->field('type',$type)                 
+                ->field('component',$component);                                       
+        },'errors.save');    
     }
 
     /**

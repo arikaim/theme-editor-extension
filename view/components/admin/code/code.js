@@ -12,6 +12,7 @@ function ThemeCodeEditor() {
     this.loadCodeEditor = function(code, onSuccess, mode) {
         mode = (isEmpty(mode) == true) ? 'xml' : mode;
         var libraryName = 'codemirror:template';
+        
         switch(mode) {
             case 'css': 
                 libraryName = 'codemirror:css';
@@ -51,11 +52,9 @@ function ThemeCodeEditor() {
     };
 
     this.loadThemeEdit = function(theme) {
-        var component = ($('#toggle_mode').checkbox('is checked') == true) ? 'editor::admin.code.menu' : 'editor::admin.code.simple';
-
         arikaim.page.loadContent({
             id: 'editor',
-            component: component,
+            component: 'editor::admin.code.menu',
             params: { 
                 theme_name: theme              
             },

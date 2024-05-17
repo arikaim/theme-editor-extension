@@ -1,9 +1,0 @@
-{
-    "editors": {
-        "logo": {
-            "icon": "image",   
-            "component": "editor::admin.code.simple.logo",  
-            "title": "Site Logo"
-        }
-    }
-}
