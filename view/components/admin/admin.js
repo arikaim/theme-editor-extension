@@ -47,32 +47,24 @@ function EditorControlPanel() {
     };   
     
     this.saveComponentFile = function(theme, componentName, type, content, onSuccess, onError) {    
-        var data = {
+        return arikaim.put('/api/admin/editor/save/component/file',{
             theme: theme,
             component: componentName,   
             content: content,     
             type: type
-        };
-
-        return arikaim.put('/api/admin/editor/save/component/file',data,onSuccess,onError);
+        },onSuccess,onError);
     }; 
 
     this.savePageMetaTags = function(formId, onSuccess, onError) {    
         return arikaim.put('/api/admin/editor/save/pages/metatags',formId,onSuccess,onError);
     }; 
 
-    this.setStatus = function(uuid, status, onSuccess, onError) { 
-        var data = { 
+    this.setStatus = function(uuid, status, onSuccess, onError) {   
+        return arikaim.put('/api/admin/editor/pages/status',{ 
             status: status,
             uuid: uuid 
-        };
-        
-        return arikaim.put('/api/admin/editor/pages/status',data,onSuccess,onError);           
+        },onSuccess,onError);           
     };
 }
 
 var editorControlPanel = new EditorControlPanel();
-
-arikaim.component.onLoaded(function() {
-    arikaim.ui.tab();        
-});

@@ -1,8 +1,22 @@
-{{  component('semantic~tabs',{ 
+{{  component('system:admin.tabs',{ 
         items: [ 
-            { id: 'editor_tab', title: labels.editor, icon: 'edit', component: 'editor::admin.code', active: true }                              
+            {              
+                title: labels.editor, 
+                svg_icon: 'icons~edit', 
+                component: 'editor::admin.editor', 
+                active: true 
+            },
+            {              
+                title: labels.code, 
+                svg_icon: 'icons~code', 
+                component: 'editor::admin.code'
+            }                              
         ],
-        menu: { component: 'system:admin.extensions.menu.actions', extension: 'editor' },
-        content: { component: 'editor::admin.code' } 
+        menu: { 
+            extension: 'editor' 
+        },
+        content: { 
+            component: 'editor::admin.editor' 
+        } 
     })
 }}

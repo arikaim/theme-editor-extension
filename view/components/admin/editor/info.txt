@@ -1,0 +1,8 @@
+select template
+
+
+    - pages
+        .   - >    components:
+        .
+        .
+
